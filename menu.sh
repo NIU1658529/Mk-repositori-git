@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-
+f=$1
 menu()
 {
 echo "1. buscamos a tu persona i ordenamos por edad"
@@ -13,13 +13,19 @@ read op
 }
 op1()
 {
-echo "Continuara.."
+echo "A quin buscamos? "
+read nom
+#awk -F: nom="$nom" '$1 == nom {}' f (no sabria como hacerlo con awk)
+grep $nom $f|sort -k4 -t:
 }
 
 
 op2()
 {
-echo "Continuara.."
+lin_aleatoria=`shuf -n1 $f`
+nom= cut -f1 -d: $lin_aleatoria
+edat= cut -f4 -d: $lin_aleatoria
+while [ edat != edat1se3  ] 
 }
 
 op3()
